@@ -1,0 +1,26 @@
+http://localhost:3000/books
+
+### search books
+
+http://localhost:3000/books?minPrice=300&maxPrice=400
+
+
+### bad values
+
+http://localhost:3000/books?minPrice=none&maxPrice=none
+
+
+### bad number values
+
+http://localhost:3000/books?minPrice=-5&maxPrice=10000
+
+
+### bad params
+
+http://localhost:3000/books?babyPoop=true
+
+
+### min is greater than max
+http://localhost:3000/books?minPrice=500&maxPrice=100
+
+
