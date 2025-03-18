@@ -1,12 +1,10 @@
 import { Hono } from 'hono';
 import { getBooksByPrice } from './queries';
-import { zValidator } from '@hono/zod-validator';
-import { z } from 'zod';
-import { schema, booksValidator } from './schema';
+import { bookValidator } from './book-schema';
 
 const app = new Hono();
 
-app.get('/books', booksValidator, (c) => {
+app.get('/books', bookValidator, (c) => {
   const { minPrice, maxPrice } = c.req.valid('query');
 
   const books = getBooksByPrice(minPrice, maxPrice);

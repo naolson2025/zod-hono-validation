@@ -25,10 +25,12 @@ export const schema = z
     message: 'minPrice must be less than or equal to maxPrice',
   });
 
-export const booksValidator = zValidator('query', schema, (result, c) => {
+export const bookValidator = zValidator('query', schema, (result, c) => {
   if (!result.success) {
     return c.json(
-      { errors: result.error.issues.map((issue) => issue.message) },
+      {
+        errors: result.error.issues.map((issue) => issue.message),
+      },
       400
     );
   }
